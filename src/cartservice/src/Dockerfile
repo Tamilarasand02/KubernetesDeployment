@@ -15,7 +15,7 @@ FROM mcr.microsoft.com/dotnet/aspnet:5.0-alpine3.13
 
 WORKDIR /app
 
-COPY --from=build /app/out .
+COPY --from=builder /app/out .
 
 EXPOSE 7070
 
