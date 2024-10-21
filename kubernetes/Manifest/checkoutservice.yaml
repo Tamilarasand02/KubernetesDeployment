@@ -17,7 +17,7 @@ spec:
         - name: acr-auth
       containers:
         - name: checkoutservice
-          image: ecommerceusecase.azurecr.io/checkoutservice-nonprod:latest
+          image: registryprodtest.azurecr.io/checkoutservice-nonprod:latest
           ports:
             - containerPort: 9555
           env:
