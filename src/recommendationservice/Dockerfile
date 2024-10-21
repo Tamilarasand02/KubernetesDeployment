@@ -14,8 +14,8 @@ WORKDIR /recommendationservice
 COPY requirements.txt ./
 RUN pip install -r requirements.txt
 
-# Copy the rest of the application files
-COPY . .
+# Copy the rest of the application files (adjust path if necessary)
+COPY ./src/recommendationservice/ ./
 
 # Expose the application port
 EXPOSE 8085
