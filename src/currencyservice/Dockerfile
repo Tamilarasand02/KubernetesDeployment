@@ -1,7 +1,4 @@
-
-FROM node:20.2.0-alpine@sha256:f25b0e9d3d116e267d4ff69a3a99c0f4cf6ae94eadd87f1bf7bd68ea3ff0bef7 as base
-
-FROM base as builder
+FROM node:20.2.0 as base
 
 RUN apk add --update --no-cache \
     python3 \
@@ -12,8 +9,14 @@ WORKDIR /usr/src/app
 
 COPY package*.json ./
 
+# Set npm log level to verbose for debugging
+RUN npm config set loglevel verbose
+
+# Install dependencies
 RUN npm install --only=production
 
-EXPOSE  7000
+COPY . .
 
-CMD [ "npm", "start" ]
+EXPOSE 7000
+
+CMD ["npm", "start"]
