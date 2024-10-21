@@ -17,7 +17,7 @@ spec:
         - name: acr-auth
       containers:
         - name: emailservice
-          image: ecommerceusecase.azurecr.io/emailservice-nonprod:latest
+          image: registryprodtest.azurecr.io/emailservice-nonprod:latest
           ports:
             - containerPort: 8080
           env:
