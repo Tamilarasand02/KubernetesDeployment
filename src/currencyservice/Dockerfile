@@ -1,19 +1,26 @@
-FROM node:20
+# Use a specific Node.js version as a base image
+FROM node:20.2.0-alpine as base
 
-# Set the working directory
+# Build stage
+FROM base as builder
+
+# Install build dependencies
+RUN apk add --no-cache python3 make g++
+
+# Set working directory
 WORKDIR /usr/src/app
 
-# Copy package.json and package-lock.json
+# Copy package.json files
 COPY package*.json ./
 
-# Install dependencies
-RUN npm install --production
+# Install only production dependencies
+RUN npm install --only=production
 
-# Copy the application files
+# Copy the rest of the application code
 COPY . .
 
-# Expose the port your app runs on
+# Expose the port for the gRPC server
 EXPOSE 7000
 
-# Command to run the app
-CMD ["node", "server.js"]
+# Command to start the application
+CMD [ "node", "server.js" ]
