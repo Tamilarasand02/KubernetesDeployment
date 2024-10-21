@@ -20,7 +20,7 @@ WORKDIR /app
 # Copy the installed dependencies from the builder stage
 COPY --from=builder /usr/local /usr/local
 
-# Copy the source files
+# Copy the source files to the final image
 COPY locustfile.py .
 
 # Expose the application port
