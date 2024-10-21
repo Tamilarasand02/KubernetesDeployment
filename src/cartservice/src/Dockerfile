@@ -5,6 +5,7 @@ WORKDIR /app
 
 COPY CartService.csproj .
 
+
 RUN dotnet restore
 
 COPY . .
