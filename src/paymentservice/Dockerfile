@@ -16,9 +16,7 @@ RUN npm install
 
 # Copy the rest of the application files
 COPY . .
-
 # Expose the application port
 EXPOSE 4051
-
 # Command to run the application
 CMD ["npm", "start"]
