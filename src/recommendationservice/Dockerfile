@@ -21,4 +21,4 @@ COPY . .
 EXPOSE 8085
 
 # Command to run the application
-CMD ["python", "main.py"]
+CMD ["python", "recommendation_server.py"]
