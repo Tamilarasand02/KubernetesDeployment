@@ -19,7 +19,7 @@ spec:
         - name: cartservice
           image: registryprodtest.azurecr.io/cartservice-nonprod:latest
           ports:
-            - containerPort: 7070
+            - containerPort: 5000
           env:
             - name: REDIS_ADDR
               value: "redis-cart:6379"
@@ -43,5 +43,5 @@ spec:
     app: cartservice
   ports:
     - name: grpc
-      port: 7070
-      targetPort: 7070
+      port: 5000
+      targetPort: 5000
