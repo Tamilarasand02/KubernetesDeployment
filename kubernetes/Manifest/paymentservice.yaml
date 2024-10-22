@@ -23,6 +23,25 @@ spec:
           env:
             - name: PORT
               value: "50051"
+            - name: DISABLE_PROFILER
+              value: "1"
+          readinessProbe:
+            tcpSocket:
+              port: 50051
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          livenessProbe:
+            tcpSocket:
+              port: 50051
+            initialDelaySeconds: 15
+            periodSeconds: 20
+          resources:
+            requests:
+              cpu: 100m
+              memory: 64Mi
+            limits:
+              cpu: 200m
+              memory: 128Mi
 
 ---
 apiVersion: v1
@@ -35,6 +54,6 @@ spec:
   selector:
     app: paymentservice
   ports:
-  - name: grpc
-    port: 50051
-    targetPort: 50051
+    - name: grpc
+      port: 50051
+      targetPort: 50051
