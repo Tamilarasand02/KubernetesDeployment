@@ -27,12 +27,12 @@ spec:
               value: "1"
           readinessProbe:
             tcpSocket:
-              port: 50051
+              port: 7000
             initialDelaySeconds: 5
             periodSeconds: 10
           livenessProbe:
             tcpSocket:
-              port: 50051
+              port: 7000
             initialDelaySeconds: 15
             periodSeconds: 20
           resources:
